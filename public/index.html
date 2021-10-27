@@ -5,17 +5,19 @@
 		<style type="text/css">
 			label {
 				font-weight: bold;
+				text-align: right;
 			}
 		</style>
 	</head>
 	<body>
 		<h1>Generate waveform data</h1>
-		<form action="/upload" method="post" enctype="multipart/form-data" style="display: grid; grid-template-columns: auto auto; gap: 2rem; justify-content: start;">
+		<form action="/upload" method="post" enctype="multipart/form-data" style="display: grid; grid-template-columns: auto auto; gap: 1rem; justify-content: start;">
 			<label for="file">
-				Audio file
+				Select or drop audio file
 			</label>
 			<input id="file" type="file" name="file" accept="audio/mpeg,.mp3">
-			<button type="submit" style="grid-column: 2">Process</button>
+			<label>...then</label>
+			<div><button type="submit">Upload</button> and be patient for it to be uploaded and processed</div>
 		</form>
 		<h2>Equivalent DIY method</h2>
 		<ol>

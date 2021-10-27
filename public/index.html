@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<h1>Generate waveform data</h1>
-		<form action="/upload" method="post" enctype="multipart/form-data" style="display: grid; grid-template-columns: auto auto; gap: 1rem; justify-content: start;">
+		<form action="/upload" method="post" enctype="multipart/form-data" style="margin: 2rem 0; display: grid; grid-template-columns: auto auto; gap: 1rem; justify-content: start;">
 			<label for="file">
 				Select or drop audio file
 			</label>
@@ -19,14 +19,17 @@
 			<label>...then</label>
 			<div><button type="submit">Upload</button> and be patient for it to be uploaded and processed</div>
 		</form>
-		<h2>Equivalent DIY method</h2>
-		<ol>
-			<li>Install <a href="https://github.com/bbc/audiowaveform">audiowaveform</a></li>
-			<li>Find out the audio file's duration in seconds</li>
-			<li>Calculate <em>pixelsPerSecond</em> = 1500 ÷ <em>durationInSeconds</em></li>
-			<li>Run <code>audiowaveform --bits 8 --amplitude-scale auto --output-format json --pixels-per-second <em>pixelsPerSecond</em> --input-file <em>inputMp3File</em></code></li>
-			<li>Capture the standard output (not the standard error; i.e. capture only the JSON, <code>{...}</code>), perhaps by piping it to something like <code>pbcopy</code> to get it on the clipboard</li>
-			<li>Enter the duration and paste the JSON data into Prismic</li>
-		</ol>
+		<hr>
+		<details>
+			<summary>Instructions for equivalent DIY method</summary>
+			<ol>
+				<li>Install <a href="https://github.com/bbc/audiowaveform">audiowaveform</a></li>
+				<li>Find out the audio file's duration in seconds</li>
+				<li>Calculate <em>pixelsPerSecond</em> = 1500 ÷ <em>durationInSeconds</em></li>
+				<li>Run <code>audiowaveform --bits 8 --amplitude-scale auto --output-format json --pixels-per-second <em>pixelsPerSecond</em> --input-file <em>inputMp3File</em></code></li>
+				<li>Capture the standard output (not the standard error; i.e. capture only the JSON, <code>{...}</code>), perhaps by piping it to something like <code>pbcopy</code> to get it on the clipboard</li>
+				<li>Enter the duration and paste the JSON data into Prismic</li>
+			</ol>
+		</details>
 	</body>
 </html>

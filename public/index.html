@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Waveform tool</title>
+		<style type="text/css">
+			label {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Generate waveform data</h1>
+		<form action="/upload" method="post" enctype="multipart/form-data" style="display: grid; grid-template-columns: auto auto; gap: 2rem; justify-content: start;">
+			<label for="file">
+				Audio file
+			</label>
+			<input id="file" type="file" name="file" accept="audio/mpeg,.mp3">
+			<button type="submit" style="grid-column: 2">Process</button>
+		</form>
+		<h2>Equivalent DIY method</h2>
+		<ol>
+			<li>Install <a href="https://github.com/bbc/audiowaveform">audiowaveform</a></li>
+			<li>Find out the audio file's duration in seconds</li>
+			<li>Calculate <em>pixelsPerSecond</em> = 1500 ÷ <em>durationInSeconds</em></li>
+			<li>Run <code>audiowaveform --bits 8 --amplitude-scale auto --output-format json --pixels-per-second <em>pixelsPerSecond</em> --input-file <em>inputMp3File</em></code></li>
+			<li>Capture the standard output (not the standard error; i.e. capture only the JSON, <code>{...}</code>), perhaps by piping it to something like <code>pbcopy</code> to get it on the clipboard</li>
+			<li>Enter the duration and paste the JSON data into Prismic</li>
+		</ol>
+	</body>
+</html>
